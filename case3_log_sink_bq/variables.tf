@@ -38,3 +38,13 @@ variable "log_filter" {
   type        = string
   default     = "logName:\"logs/cloudaudit.googleapis.com%2Factivity\" OR logName:\"logs/cloudaudit.googleapis.com%2Fpolicy\""
 }
+
+variable "labels" {
+  description = "Labels to apply to resources"
+  type        = map(string)
+  default = {
+    environment = "production"
+    managed_by  = "terraform"
+    purpose     = "security-auditing"
+  }
+}

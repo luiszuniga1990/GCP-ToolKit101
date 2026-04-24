@@ -44,3 +44,13 @@ variable "table_name_template" {
   type        = string
   default     = "daily_sales"
 }
+
+variable "labels" {
+  description = "Labels to apply to resources"
+  type        = map(string)
+  default = {
+    environment = "production"
+    managed_by  = "terraform"
+    security    = "hardened"
+  }
+}
