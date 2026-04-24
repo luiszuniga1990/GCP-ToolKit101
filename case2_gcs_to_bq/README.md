@@ -11,10 +11,29 @@ Automation of flat file ingestion into a data warehouse using BigQuery Data Tran
    +-------------------+       +-------------------+       +-------------------+
 ```
 
-## Description
-This flow allows centralizing operational data (sales, inventory, etc.) generated as files. The DTS service monitors the bucket and automatically loads new files into BigQuery every 24 hours.
+## Deployment & Destruction
 
-## Terraform Components
-- `google_storage_bucket`: Temporary file storage.
-- `google_bigquery_dataset`: Final analytical storage.
-- `google_bigquery_data_transfer_config`: The "engine" that moves the data.
+### Prerequisites
+- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) authenticated.
+- [Terraform](https://developer.hashicorp.com/terraform/downloads) installed (v1.5.0+).
+
+### Steps to Deploy
+1. Navigate to the folder:
+   ```bash
+   cd case2_gcs_to_bq
+   ```
+2. Initialize and Apply:
+   ```bash
+   terraform init
+   terraform apply
+   ```
+
+### Steps to Destroy
+```bash
+terraform destroy
+```
+
+## How to use
+1. Upload a CSV file (with headers) to the bucket: `gs://<project_id>-data-ingestion/data.csv`.
+2. The transfer will run according to the schedule (default: every 24h).
+3. You can also manually trigger the transfer in the GCP Console under **BigQuery > Data Transfers**.

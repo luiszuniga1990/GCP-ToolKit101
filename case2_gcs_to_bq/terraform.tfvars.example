@@ -1,0 +1,7 @@
+project_id         = "your-gcp-project-id"
+region             = "us-central1"
+bucket_name_suffix = "data-ingestion"
+dataset_id         = "raw_data_ingestion"
+location           = "US"
+transfer_schedule  = "every 24 hours"
+table_name_template = "daily_sales"

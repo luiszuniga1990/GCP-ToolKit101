@@ -1,0 +1,5 @@
+project_id = "your-gcp-project-id"
+region     = "us-central1"
+dataset_id = "security_log_archive"
+location   = "US"
+sink_name  = "critical_activity_sink"

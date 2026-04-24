@@ -15,8 +15,31 @@ Configuration of a critical log pipeline for security auditing and compliance.
                                  (IAM Permissions)
 ```
 
-## Description
-This module captures audit events (who created a VM, who deleted a permission) and sends them to BigQuery. Unlike standard log storage, in BigQuery you can keep information for years economically and perform complex SQL searches.
+## Deployment & Destruction
 
-## Applied Filter
-Captures administrative activity logs and changes in security policies (IAM).
+### Prerequisites
+- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) authenticated.
+- [Terraform](https://developer.hashicorp.com/terraform/downloads) installed (v1.5.0+).
+
+### Steps to Deploy
+1. Navigate to the folder:
+   ```bash
+   cd case3_log_sink_bq
+   ```
+2. Initialize and Apply:
+   ```bash
+   terraform init
+   terraform apply
+   ```
+
+### Steps to Destroy
+```bash
+terraform destroy
+```
+
+## Log Filter Details
+By default, this sink captures:
+- **Administrative Activity**: Logs for operations that modify the configuration or metadata of resources.
+- **Policy Metadata**: Logs for operations that modify IAM policies.
+
+You can customize the `log_filter` variable in `variables.tf` to capture different events (e.g., Data Access logs).
