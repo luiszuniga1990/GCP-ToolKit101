@@ -9,7 +9,8 @@ This repository is a collection of **Terraform** templates designed to deploy ba
 ├── case1_billing_dataset/      # Preparation for Billing export
 ├── case2_gcs_to_bq/           # CSV/JSON file ingestion pipeline
 ├── case3_log_sink_bq/         # Auditing and centralization of critical logs
-└── case4_monitoring_dashboard/ # Health metrics visualization
+├── case4_monitoring_dashboard/ # Health metrics visualization
+└── secops-preview/             # YARA-L rules and SCC snippets (Coming Soon)
 ```
 
 ## Base Cost Table (Estimated)
