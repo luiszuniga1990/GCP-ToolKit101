@@ -34,6 +34,12 @@ resource "google_storage_bucket" "data_sink" {
   force_destroy               = true
   uniform_bucket_level_access = true
 
+  versioning {
+    enabled = true
+  }
+
+  labels = var.labels
+
   depends_on = [google_project_service.apis]
 }
 
@@ -43,6 +49,7 @@ resource "google_storage_bucket" "data_sink" {
 resource "google_bigquery_dataset" "ingestion" {
   dataset_id = var.dataset_id
   location   = var.location
+  labels     = var.labels
 
   depends_on = [google_project_service.apis]
 }

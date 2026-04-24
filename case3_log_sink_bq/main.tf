@@ -30,6 +30,7 @@ resource "google_project_service" "logging_apis" {
 resource "google_bigquery_dataset" "log_archive" {
   dataset_id = var.dataset_id
   location   = var.location
+  labels     = var.labels
 
   depends_on = [google_project_service.logging_apis]
 }
