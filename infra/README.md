@@ -20,26 +20,26 @@ This directory contains modular Terraform templates for deploying essential infr
     *   **Goal**: Deploy a Cloud Monitoring Dashboard with pre-configured widgets for infrastructure health.
     *   **Use Case**: Real-time visibility into resource performance and status.
 
-## Infrastructure Diagram
+## Folder Distribution & Cases
 
 ```text
-    +-----------------------------------------------------------+
-    |                  Google Cloud Platform                    |
-    |                                                           |
-    |  [ Storage ]          [ BigQuery ]         [ Operations ] |
-    |      |                      ^                     |       |
-    |      |       (Case 2)       |                     |       |
-    |      +--- Ingestion DTS ----+                     |       |
-    |                             |                     |       |
-    |  [ Billing ]                |           (Case 4)  |       |
-    |      |       (Case 1)       |      +--- Dashboard <---+       |
-    |      +--- Cost Export ------+      |                      |       |
-    |                             |      |                      |       |
-    |  [ Logging ]                |      |            (Metrics) |       |
-    |      |       (Case 3)       |      |                      |       |
-    |      +--- Log Sink ---------+      |                      |       |
-    |                                    |                      |       |
-    +------------------------------------+----------------------+
+infra/
+│
+├── 📂 case1_billing_dataset/
+│   └── 🎯 Goal: Deploy a BigQuery dataset for Cost Management.
+│       └── 🛠️ Components: BigQuery Dataset, Access Controls.
+│
+├── 📂 case2_gcs_to_bq/
+│   └── 🎯 Goal: Automate CSV/JSON ingestion from GCS.
+│       └── 🛠️ Components: Cloud Storage, BQ Data Transfer Service.
+│
+├── 📂 case3_log_sink_bq/
+│   └── 🎯 Goal: Centralize critical audit logs for analysis.
+│       └── 🛠️ Components: Cloud Logging Sink, BigQuery Storage.
+│
+└── 📂 case4_monitoring_dashboard/
+    └── 🎯 Goal: Visualize infrastructure health & metrics.
+        └── 🛠️ Components: Cloud Monitoring, Custom Dashboards.
 ```
 
 ## Base Cost Table (Estimated)
