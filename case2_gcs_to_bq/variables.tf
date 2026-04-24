@@ -1,3 +1,9 @@
+variable "credentials_file" {
+  description = "Path to the GCP Service Account JSON credentials file"
+  type        = string
+  default     = null
+}
+
 variable "project_id" {
   description = "GCP Project ID"
   type        = string
