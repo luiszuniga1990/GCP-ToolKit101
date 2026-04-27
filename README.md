@@ -17,8 +17,11 @@ Soon, we will expand the toolkit with advanced threat detection patterns, automa
 │   ├── case1_billing_dataset/      # Preparation for Billing export
 │   ├── case2_gcs_to_bq/           # CSV/JSON file ingestion pipeline
 │   ├── case3_log_sink_bq/         # Auditing and centralization of critical logs
-│   └── case4_monitoring_dashboard/ # Health metrics visualization
+│   ├── case4_monitoring_dashboard/ # Health metrics visualization
+│   └── caso5/                      # Secure VPC Network architecture
 └── secops/                     # Security Operations resources
     └── secops-preview/             # YARA-L rules and SCC snippets (Coming Soon)
+
+
 ```
 
