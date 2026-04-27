@@ -1,0 +1,43 @@
+# Ideas de Proyectos y Casos de Uso: GCP, Chronicle y Mandiant
+
+A continuación se presenta el desglose de los pilares del ecosistema de seguridad de Google, detallando para cada uno **5 casos de uso** aplicados directamente a los desafíos de ciberseguridad actuales.
+
+## 1. Google Chronicle (SecOps): SIEM y Análisis de Telemetría a Escala
+**Descripción general:** Centralización y normalización de altos volúmenes de logs para la creación de reglas de detección avanzadas mediante YARA-L, permitiendo una gran velocidad de respuesta y monitoreo a escala de petabytes.
+
+### Casos de uso enfocados en la industria:
+1. **Sector Financiero (Detección de Amenazas Internas / Insider Threats):** Correlación de logs de acceso VPN de empleados combinados con accesos inusuales a bases de datos en horas no hábiles, mitigando fraude y previniendo exfiltración de registros.
+2. **Retail y E-commerce (Detección Temprana de Ransomware):** Identificación de patrones rítmicos de cifrado o movimientos masivos de archivos entre estaciones de trabajo y el entorno de nube.
+3. **Sector Salud (Monitoreo de Accesos a PHI y Cumplimiento HIPAA):** Auditoría estricta e inmutable en Chronicle sobre quién accede a sistemas que alojan datos de historias clínicas y en qué momento.
+4. **Telecomunicaciones (Analítica de Ataques Volumétricos a Escala):** Ingestión intensiva de VPC Flow Logs y DNS Logs para detectar patrones de infiltración mediante botnets (Command and Control).
+5. **Sector Manufactura y OT (Análisis de Comportamientos Anómalos):** Monitoreo integrado de logs IT y tecnología operativa (OT). Si un dispositivo IoT industrial comprometido trata de contactarse con el dominio corporativo, el motor de correlación de eventos alerta y detiene el movimiento lateral.
+
+## 2. Mandiant Advantage: Inteligencia de Amenazas y Enriquecimiento
+**Descripción general:** Consumo de inteligencia dinámica contra amenazas e indicadores de compromiso (IoCs) para enriquecer eventos del SIEM, priorizar alertas y proveer contexto sobre atacantes avanzados (APTs).
+
+### Casos de uso enfocados en la industria:
+1. **Energía e Infraestructura Crítica (Protección contra APTs estatales):** Uso de inteligencia táctica para identificar anticipadamente campañas de actores de estado-nación que intentan sabotear redes eléctricas.
+2. **Industria Farmacéutica (Protección de Propiedad Intelectual):** Validación de ejecutables extraños en laboratorios contra el feed de inteligencia dinámico para confirmar si pertenecen a malware de espionaje industrial.
+3. **Sector Público Gubernamental (Alerta Temprana de Zero-Days):** Aprovechamiento de reportes forenses de Mandiant sobre brechas críticas recién vistas (Zero-Day), permitiendo actualizar configuraciones antes de ataques masivos.
+4. **Tecnología y SaaS (Defensa Proactiva frente a Spear-Phishing Dirigido):** Integración de APIs de inteligencia en pasarelas de correo para bloquear dominios nuevos apenas son etiquetados como maliciosos.
+5. **Servicios Financieros (Aceleración de Investigaciones Forenses):** Enriquecimiento automático de alertas informando a qué grupo cibercriminal pertenecen las IPs detectadas y sus Tácticas, Técnicas y Procedimientos (TTPs).
+
+## 3. Security Command Center (SCC): Postura de Seguridad y Cumplimiento
+**Descripción general:** Plataforma de gestión de la postura de seguridad que detecta automáticamente vulnerabilidades, amenazas dinámicas y desviaciones de cumplimiento en tiempo real.
+
+### Casos de uso enfocados en la industria:
+1. **E-commerce (Detección de Buckets Expuestos):** Alertas críticas inmediatas si un bucket de Cloud Storage pierde su restricción de acceso público, previniendo la exposición pública de catálogos o datos de clientes.
+2. **Sector Salud (Escaneo de Vulnerabilidades en Contenedores):** Identificación automatizada de vulnerabilidades (CVEs) en imágenes de contenedores en Artifact Registry para impedir despliegues de microservicios con brechas conocidas.
+3. **Servicios de Nube (Detección de Amenazas de Criptominería):** SCC identifica comportamientos anómalos en Compute Engine que indican que una instancia ha sido comprometida para minar criptomonedas.
+4. **Startups (Dashboard de Cumplimiento Automatizado):** Visualización en tiempo real del estado de cumplimiento de la infraestructura con estándares como PCI-DSS, SOC2 o CIS Benchmark de GCP.
+5. **Banca Online (Análisis de Rutas de Ataque):** Simulación visual proyectada en SCC que muestra cómo un atacante podría saltar de un recurso comprometido hacia una base de datos crítica basándose en configuraciones actuales de IAM y red.
+
+## 4. Centro Unificado de Respuesta (Arquitecturas Híbridas End-to-End)
+**Descripción general:** Casos robustos de respuesta y automatización (SOAR) que entrelazan los despliegues en GCP con la analítica de Chronicle e inteligencia de Mandiant.
+
+### Casos de uso enfocados en la industria:
+1. **Banca Multinacional (Aislamiento de Nodos):** Mandiant detecta un IoC nuevo; Chronicle observa interacción con una BD en GCP; automáticamente se inserta una regla restrictiva en Cloud Armor/Firewall para poner en cuarentena el recurso.
+2. **Hospitales (Contención de Criptofraude):** Al identificar en Chronicle patrones de ataque reconocidos por Mandiant, se orquesta el bloqueo de IPs en tiempo real en los balanceadores de carga de GCP.
+3. **E-commerce (Resiliencia en Black Friday):** Ante un compromiso detectado, el sistema apaga instancias infectadas y lanza versiones sanas mediante Managed Instance Groups (MIGs), manteniendo el 99.99% de uptime.
+4. **Industria Aeroespacial (Contención Forense):** Ante sospecha de exfiltración, se revoca el acceso de identidad en IAM y se toma un Snapshot inmutable en GCP para análisis forense profundo sin detener la operación.
+5. **Automotriz Global (SOC Integral Híbrido):** Sincronización de políticas de seguridad en miles de plantas locales mediante Terraform y SCC, asegurando que cada nodo remoto cumpla con el endurecimiento de seguridad centralizado.
