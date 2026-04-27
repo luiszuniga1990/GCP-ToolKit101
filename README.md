@@ -1,6 +1,17 @@
 # 101 ToolKit GCP - Basic Project Guide
 
-This repository is a modular toolkit for **Google Cloud Platform (GCP)**, offering ready-to-deploy **Terraform** templates and **SecOps** configurations. It aims to bridge the gap between basic infrastructure automation and advanced security operations, providing independent, functional cases for data, observability, and governance.
+## 📖 About This Repository
+This repository is a comprehensive **GCP Toolkit** designed for Cloud Engineers, Data Engineers, and SecOps professionals. It provides modular, production-ready **Terraform** templates and **Security Operations** configurations to automate infrastructure, data pipelines, and threat detection on Google Cloud Platform.
+
+### 🌟 Key Features
+- **Modular Infrastructure**: Deploy independent cases for networking, billing, and observability.
+- **Security-First Approach**: Native integration of GCP security best practices (IAP, VPC Flow Logs, etc.).
+- **SecOps Ready**: Emerging resources for YARA-L threat detection and SCC governance.
+
+---
+
+This repository is a modular toolkit for **Google Cloud Platform (GCP)**, offering ready-to-deploy **Terraform** templates and **SecOps** configurations.
+ It aims to bridge the gap between basic infrastructure automation and advanced security operations, providing independent, functional cases for data, observability, and governance.
 
 **Current Focus:**
 *   🛠️ **Infrastructure as Code (IaC):** Automated data pipelines, centralized logging, and observability dashboards.
