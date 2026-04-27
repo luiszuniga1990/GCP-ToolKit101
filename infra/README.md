@@ -20,6 +20,11 @@ This directory contains modular Terraform templates for deploying essential infr
     *   **Goal**: Deploy a Cloud Monitoring Dashboard with pre-configured widgets for infrastructure health.
     *   **Use Case**: Real-time visibility into resource performance and status.
 
+5.  **Case 5: Secure VPC**
+    *   **Goal**: Deploy a Virtual Private Cloud (VPC) following security best practices (Private Google Access, Cloud NAT, IAP).
+    *   **Use Case**: Foundation for secure network architectures in GCP.
+
+
 ## Folder Distribution & Cases
 
 ```text
@@ -37,9 +42,13 @@ infra/
 │   └── 🎯 Goal: Centralize critical audit logs for analysis.
 │       └── 🛠️ Components: Cloud Logging Sink, BigQuery Storage.
 │
-└── 📂 case4_monitoring_dashboard/
-    └── 🎯 Goal: Visualize infrastructure health & metrics.
-        └── 🛠️ Components: Cloud Monitoring, Custom Dashboards.
+├── 📂 case4_monitoring_dashboard/
+│   └── 🎯 Goal: Visualize infrastructure health & metrics.
+│       └── 🛠️ Components: Cloud Monitoring, Custom Dashboards.
+│
+└── 📂 caso5/
+    └── 🎯 Goal: Deploy a highly secure VPC network.
+        └── 🛠️ Components: VPC, Subnets, Cloud NAT, IAP, Flow Logs.
 ```
 
 ## Base Cost Table (Estimated)
